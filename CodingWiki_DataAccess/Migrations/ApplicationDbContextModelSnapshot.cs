@@ -35,7 +35,7 @@ namespace CodingWiki_DataAccess.Migrations
 
                     b.HasKey("BlogId");
 
-                    b.ToTable("Blogs");
+                    b.ToTable("Blogs", (string)null);
 
                     b.HasData(
                         new
@@ -80,7 +80,7 @@ namespace CodingWiki_DataAccess.Migrations
 
                     b.HasIndex("PublisherId");
 
-                    b.ToTable("Books");
+                    b.ToTable("Books", (string)null);
 
                     b.HasData(
                         new
@@ -134,7 +134,7 @@ namespace CodingWiki_DataAccess.Migrations
                     b.HasIndex("BookId")
                         .IsUnique();
 
-                    b.ToTable("BookDetails");
+                    b.ToTable("BookDetails", (string)null);
 
                     b.HasData(
                         new
@@ -181,7 +181,7 @@ namespace CodingWiki_DataAccess.Migrations
 
                     b.HasIndex("BlogId");
 
-                    b.ToTable("Posts");
+                    b.ToTable("Posts", (string)null);
 
                     b.HasData(
                         new
@@ -226,7 +226,7 @@ namespace CodingWiki_DataAccess.Migrations
 
                     b.HasKey("PublisherId");
 
-                    b.ToTable("Publishers");
+                    b.ToTable("Publishers", (string)null);
 
                     b.HasData(
                         new

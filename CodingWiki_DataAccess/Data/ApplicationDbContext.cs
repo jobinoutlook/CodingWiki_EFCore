@@ -65,7 +65,8 @@ namespace CodingWiki_DataAccess.Data
                 new Publisher() { PublisherId = 3, Name = "Penguin Books", Location = "London" }
                 );
 
-            modelBuilder.Entity<Book>().HasOne(p => p.Publisher)
+            modelBuilder.Entity<Book>()
+                .HasOne(p => p.Publisher)
                 .WithMany(b => b.Books)
                 .HasForeignKey(p => p.PublisherId)
                 .OnDelete(DeleteBehavior.NoAction);
@@ -76,6 +77,14 @@ namespace CodingWiki_DataAccess.Data
                 .WithMany(p => p.Posts)
                 .HasForeignKey(b => b.BlogId)
                 .OnDelete(DeleteBehavior.Cascade);
+
+            //modelBuilder.Entity<Blog>()
+            //    .HasMany(b => b.Posts)
+            //    .WithOne(p => p.Blog)
+            //    .HasForeignKey(p => p.BlogId)
+            //    .OnDelete(DeleteBehavior.Cascade); 
+
+
 
             modelBuilder.Entity<Blog>().HasData(
                 new Blog() { BlogId = 1, Title = "Science" },
