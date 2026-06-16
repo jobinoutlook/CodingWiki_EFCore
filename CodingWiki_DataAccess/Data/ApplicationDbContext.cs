@@ -18,6 +18,14 @@ namespace CodingWiki_DataAccess.Data
         public DbSet<Blog> Blogs { get; set; }
         public DbSet<Post> Posts { get; set; }
 
+        public DbSet<Author> Author { get; set; }
+
+        //---------------------------------------
+        public DbSet<User> Users { get; set; }
+        public DbSet<UserDetail> UserDetails { get; set; }
+        public DbSet<Role> Roles { get; set; }
+        //---------------------------------------
+
 
         protected override void OnConfiguring(DbContextOptionsBuilder options)
         {
@@ -100,6 +108,9 @@ namespace CodingWiki_DataAccess.Data
                 );
 
             //----------------------------------------------------
+            modelBuilder.Entity<BookAuthorMap>().HasKey(u => new { u.AuthorId, u.BookId });
+
+            
         }
 
 
