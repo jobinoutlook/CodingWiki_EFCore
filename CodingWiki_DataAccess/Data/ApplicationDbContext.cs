@@ -109,7 +109,8 @@ namespace CodingWiki_DataAccess.Data
 
             //----------------------------------------------------
             modelBuilder.Entity<BookAuthorMap>().HasKey(u => new { u.AuthorId, u.BookId });
-
+            modelBuilder.Entity<BookAuthorMap>().HasOne(u=>u.Book).WithMany(u=>u.BookAuthorMap).HasForeignKey(b => b.BookId);
+            modelBuilder.Entity<BookAuthorMap>().HasOne(u => u.Author).WithMany(u => u.BookAuthorMap).HasForeignKey(b => b.AuthorId);
 
         }
 
