@@ -9,13 +9,13 @@ namespace CodingWiki_Model.Models
 {
     public class BookAuthorMap
     {
-        [ForeignKey("Book")]
+        //[ForeignKey("Book")]
         public int BookId { get; set; }
-        [ForeignKey("Author")]
+        //[ForeignKey("Author")]
         public int AuthorId { get; set; }
 
-        public Book Book { get; set; }
+        //public Book Book { get; set; }
 
-        public Author Author { get; set; }
+        //public Author Author { get; set; }
     }
 }

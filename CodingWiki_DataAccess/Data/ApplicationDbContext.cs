@@ -110,7 +110,7 @@ namespace CodingWiki_DataAccess.Data
             //----------------------------------------------------
             modelBuilder.Entity<BookAuthorMap>().HasKey(u => new { u.AuthorId, u.BookId });
 
-            
+
         }
 
 

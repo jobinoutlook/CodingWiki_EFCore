@@ -22,9 +22,11 @@ namespace CodingWiki_Model.Models
         
         public BookDetail BookDetail { get; set; }
 
-        [ForeignKey("Publisher")]
-        public int PublisherId {  get; set; }
+        //[ForeignKey("Publisher")]
+        public int PublisherId { get; set; }
         public Publisher Publisher { get; set; }
+
+        //public Author Authors { get; set; }
 
         public ICollection<BookAuthorMap> BookAuthorMap { get; set; }
     }

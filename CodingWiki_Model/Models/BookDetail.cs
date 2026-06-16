@@ -16,7 +16,7 @@ namespace CodingWiki_Model.Models
         
         public string? Weight  { get; set; }
 
-        [ForeignKey("Book")]
+        //[ForeignKey("Book")]
         public int BookId { get; set; }
         public Book Book { get; set; }
     }
