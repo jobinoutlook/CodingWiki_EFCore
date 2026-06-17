@@ -10,16 +10,16 @@ namespace CodingWiki_Model.Models
 {
     public class Author
     {
-        [Key]
+        //[Key]
         public int AuthorId { get; set; }
-        [Required]
-        [MaxLength(50)]
+        //[Required]
+        //[MaxLength(50)]
         public string? FirstName { get; set; }
-        [Required]
+        //[Required]
         public string? LastName { get; set; }
         public DateTime BirthDate { get; set; }
         public string? Location { get; set; }
-        [NotMapped]
+        //[NotMapped]
         public string FullName
         {
             get { return $"{FirstName} {LastName}"; }
