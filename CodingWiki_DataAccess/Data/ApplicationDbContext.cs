@@ -48,6 +48,8 @@ namespace CodingWiki_DataAccess.Data
                 .Property(b => b.Price)
                 .HasPrecision(18, 4);
 
+            modelBuilder.Entity<Book>().Ignore(b => b.PriceRange);
+
             
 
             modelBuilder.Entity<Book>().HasData(
