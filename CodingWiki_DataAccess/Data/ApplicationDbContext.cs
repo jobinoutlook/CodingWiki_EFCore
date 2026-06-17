@@ -20,6 +20,8 @@ namespace CodingWiki_DataAccess.Data
 
         public DbSet<Author> Author { get; set; }
 
+        public DbSet<BookAuthorMap> BookAuthorMaps { get; set; }
+
         //---------------------------------------
         public DbSet<User> Users { get; set; }
         public DbSet<UserDetail> UserDetails { get; set; }
