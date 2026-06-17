@@ -26,6 +26,7 @@ namespace CodingWiki_Model.Models
 
         }
         //public Book Books { get; set; }
+
         public ICollection<BookAuthorMap> BookAuthorMap { get; set; } 
 
     }

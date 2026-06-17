@@ -108,6 +108,13 @@ namespace CodingWiki_DataAccess.Data
                 new Post() { PostId = 3, BlogId = 3, Content = "Test" },
                 new Post() { PostId = 4, BlogId = 3, Content = "Test" }
                 );
+            //----------------------------------------------------
+
+            modelBuilder.Entity<Author>().HasKey(u=>u.AuthorId);
+            modelBuilder.Entity<Author>().Property(u => u.FirstName).HasMaxLength(50).IsRequired();
+            modelBuilder.Entity<Author>().Property(u => u.LastName).HasMaxLength(50).IsRequired();
+            modelBuilder.Entity<Author>().Ignore(u => u.FullName);
+
 
             //----------------------------------------------------
             modelBuilder.Entity<BookAuthorMap>().HasKey(u => new { u.AuthorId, u.BookId });
