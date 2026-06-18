@@ -1,4 +1,5 @@
-﻿using CodingWiki_Model.Models;
+﻿using CodingWiki_DataAccess.FluentConfig;
+using CodingWiki_Model.Models;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -39,27 +40,30 @@ namespace CodingWiki_DataAccess.Data
             base.OnModelCreating(modelBuilder); //not mandatory here because we inheriting from DbContext
 
             //------------------------------------------------
+            // // code moved to FluentBookConfig
 
-            modelBuilder.Entity<Book>()
-                .HasOne(bd => bd.BookDetail)
-                .WithOne(b => b.Book)
-                .HasForeignKey<BookDetail>(bd => bd.BookId)
-                .OnDelete(DeleteBehavior.Cascade);
+            //modelBuilder.Entity<Book>()
+            //    .HasOne(bd => bd.BookDetail)
+            //    .WithOne(b => b.Book)
+            //    .HasForeignKey<BookDetail>(bd => bd.BookId)
+            //    .OnDelete(DeleteBehavior.Cascade);
 
-            modelBuilder.Entity<Book>()
-                .Property(b => b.Price)
-                .HasPrecision(18, 4);
+            //modelBuilder.Entity<Book>()
+            //    .Property(b => b.Price)
+            //    .HasPrecision(18, 4);
 
-            modelBuilder.Entity<Book>().Ignore(b => b.PriceRange);
+            //modelBuilder.Entity<Book>().Ignore(b => b.PriceRange);
 
-            
 
-            modelBuilder.Entity<Book>().HasData(
 
-                new Book() { BookId = 1, ISBN = "I054485754", Price = (decimal)10.26, Title = "Harry Potter", PublisherId = 1 },
-                new Book() { BookId = 2, ISBN = "I954T56565", Price = (decimal)20.26, Title = "Super Mario", PublisherId = 2 },
-                new Book() { BookId = 3, ISBN = "I867433467", Price = (decimal)30.26, Title = "He Man", PublisherId = 3 }
-                );
+            //modelBuilder.Entity<Book>().HasData(
+
+            //    new Book() { BookId = 1, ISBN = "I054485754", Price = (decimal)10.26, Title = "Harry Potter", PublisherId = 1 },
+            //    new Book() { BookId = 2, ISBN = "I954T56565", Price = (decimal)20.26, Title = "Super Mario", PublisherId = 2 },
+            //    new Book() { BookId = 3, ISBN = "I867433467", Price = (decimal)30.26, Title = "He Man", PublisherId = 3 }
+            //    );
+
+            modelBuilder.ApplyConfiguration(new FluentBookConfig());
 
             modelBuilder.Entity<BookDetail>().HasData(
 
